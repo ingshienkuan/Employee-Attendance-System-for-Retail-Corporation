@@ -49,6 +49,7 @@ body {
 .right-header .time {
     font-size: 15px;
     margin: 2px 0;
+    font-weight: 500;
 }
 
 /* Sidebar Styling */
