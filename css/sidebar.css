@@ -1,0 +1,241 @@
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #f5f7fb;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a73e8;
+            color: white;
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            height: 70px;
+        }
+
+        .left-header {
+            margin-left: 40px;
+        }
+
+        .left-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .left-header p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .right-header {
+            text-align: right;
+        }
+
+        .right-header .date,
+        .right-header .time {
+            font-size: 15px;
+            margin: 2px 0;
+            font-weight: 500;
+        }
+
+        /* Sidebar Styling */
+        .slide {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            transition: 0.5s ease;
+            transform: translateX(-250px);
+            z-index: 4;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+.user-profile {
+    width: 92%; /* or 90% if you want some padding */
+    margin: 15px auto auto 15px ; /* center horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the avatar and text */
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #1a73e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .user-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #011a41;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .user-position {
+            font-size: 12px;
+            color: #666;
+            text-transform: capitalize;
+        }
+
+        .user-position.admin {
+            color: #dc3545;
+            font-weight: 500;
+        }
+
+        .user-position.manager {
+            color: #fd7e14;
+            font-weight: 500;
+        }
+
+        .user-position.employee {
+            color: #28a745;
+            font-weight: 500;
+        }
+
+
+        /* Sidebar Menu */
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px 15px;
+            margin-top: 10px;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul li a {
+            color: #011a41;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
+            text-decoration: none;
+            transition: 0.2s ease-out;
+            border-radius: 8px;
+        }
+
+        ul li:hover a {
+            color: #fff;
+            background-color: #4361ee;
+        }
+
+        ul li a i {
+            width: 20px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        /* Hamburger Toggle Button */
+        .toggle {
+            position: fixed;
+            height: 30px;
+            width: 30px;
+            top: 20px;
+            left: 15px;
+            z-index: 10;
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hamburger Lines */
+        .toggle .top_line,
+        .toggle .middle_line,
+        .toggle .bottom_line {
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            background-color: #4361ee;
+            border-radius: 50px;
+            transition: 0.3s ease;
+        }
+
+        .toggle .top_line {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .toggle .middle_line {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .toggle .bottom_line {
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* When the input is checked, change the toggle lines */
+        input:checked ~ .toggle .top_line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(45deg);
+        }
+
+        input:checked ~ .toggle .bottom_line {
+            left: 2px;
+            top: 14px;
+            width: 25px;
+            transform: rotate(-45deg);
+        }
+
+        input:checked ~ .toggle .middle_line {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        /* When the checkbox is checked, move the sidebar */
+        input:checked ~ .slide {
+            transform: translateX(0);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+
+

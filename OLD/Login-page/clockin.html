@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Check-in/out System</title>
+    <link rel="stylesheet" href="css/clockin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-link">
+            <a href="login.html">Login</a>
+        </div>
+
+        <h1>Employee Check-in/out</h1>
+        
+        <div class="form-group">
+    <label for="employeeId">Employee ID</label>
+    <div class="id-container">
+        <input type="text" id="employeeId" placeholder="Enter your employee ID" autocomplete="off">
+        <button class="tick-btn" id="tickBtn" title="Confirm Employee ID">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 13l4 4L19 7"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+        
+        <div id="employeeDetails" class="hidden">
+            <div class="row">
+                <div class="form-group col">
+                    <label for="employeeName">Employee Name</label>
+                    <input type="text" id="employeeName" readonly>
+                </div>
+                
+                <div class="form-group col">
+                    <label for="department">Department</label>
+                    <input type="text" id="department" readonly>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="location">Current Location</label>
+                <input type="text" id="location" readonly>
+                <div id="locationInfo">Detecting location...</div>
+            </div>
+            
+            <div class="buttons">
+                <button id="checkInBtn" class="btn btn-check-in">
+                    <span class="icon">✓</span> Check In
+                </button>
+                <button id="checkOutBtn" class="btn btn-check-out">
+                    <span class="icon">↠</span> Check Out
+                </button>
+            </div>
+        </div>
+        
+        <div id="message" class="hidden"></div>
+    </div>
+
+    
+
+    <script src="clockin.js"></script>
+</body>
+</html>

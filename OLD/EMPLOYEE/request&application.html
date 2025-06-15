@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Management</title>
+    <link rel="stylesheet" href="request&application.css">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+    <div id="sidebar"></div>
+     <div class="container">
+        <!-- Leave Requests Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Leave Requests</h2>
+                <button class="btn btn-primary" onclick="openLeaveModal()">
+                    <span class="plus-icon"></span>
+                    New Leave Request
+                </button>
+            </div>
+            
+            <table class="table">
+                <thead class="table-header">
+                    <tr>
+                        <th>TYPE</th>
+                        <th>DATE(S)</th>
+                        <th>DURATION</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody id="leaveRequestsTable">
+                    <tr>
+                        <td>Vacation</td>
+                        <td>Jul 15, 2023 - Jul 20, 2023</td>
+                        <td>5 days</td>
+                        <td><span class="status-badge status-approved">Approved</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sick Leave</td>
+                        <td>Aug 5, 2023</td>
+                        <td>1 day</td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Leave</td>
+                        <td>Jun 10, 2023</td>
+                        <td>Half day (Morning)</td>
+                        <td><span class="status-badge status-rejected">Rejected</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Shift Change Requests Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Shift Change Requests</h2>
+                <button class="btn btn-primary" onclick="openShiftModal()">
+                    <span class="plus-icon"></span>
+                    New Shift Change
+                </button>
+            </div>
+            
+            <table class="table">
+                <thead class="table-header">
+                    <tr>
+                        <th>CURRENT SHIFT</th>
+                        <th>REQUESTED SHIFT</th>
+                        <th>REQUESTED ON</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody id="shiftRequestsTable">
+                    <tr>
+                        <td>Aug 12, 2023 (Morning)</td>
+                        <td>Aug 13, 2023 (Afternoon)</td>
+                        <td>Aug 5, 2023</td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jul 28, 2023 (Evening)</td>
+                        <td>Jul 29, 2023 (Morning)</td>
+                        <td>Jul 20, 2023</td>
+                        <td><span class="status-badge status-approved">Approved</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Leave Request Modal -->
+    <div id="leaveModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">New Leave Request</h3>
+                <button class="close" onclick="closeLeaveModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="leaveForm">
+                    <div class="form-group">
+                        <label class="form-label">Leave Type</label>
+                        <select class="form-control" id="leaveType" required>
+                            <option value="">Select leave type</option>
+                            <option value="Vacation">Vacation</option>
+                            <option value="Sick Leave">Sick Leave</option>
+                            <option value="Personal Leave">Personal Leave</option>
+                            <option value="Emergency Leave">Emergency Leave</option>
+                            <option value="Maternity/Paternity">Maternity/Paternity</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Duration Type</label>
+                        <select class="form-control" id="durationType" required>
+                            <option value="">Select duration type</option>
+                            <option value="Full Day">Full Day(s)</option>
+                            <option value="Half Day (Morning)">Half Day (Morning)</option>
+                            <option value="Half Day (Afternoon)">Half Day (Afternoon)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Reason</label>
+                        <textarea class="form-control" id="reason" rows="4" placeholder="Please provide reason for leave request..." required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeLeaveModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="submitLeaveRequest()">Submit Request</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shift Change Modal -->
+    <div id="shiftModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">New Shift Change Request</h3>
+                <button class="close" onclick="closeShiftModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="shiftForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Current Shift Date</label>
+                            <input type="date" class="form-control" id="currentShiftDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Current Shift Time</label>
+                            <select class="form-control" id="currentShiftTime" required>
+                                <option value="">Select shift time</option>
+                                <option value="Morning">Morning (6:00 AM - 2:00 PM)</option>
+                                <option value="Afternoon">Afternoon (2:00 PM - 10:00 PM)</option>
+                                <option value="Evening">Evening (10:00 PM - 6:00 AM)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Requested Shift Date</label>
+                            <input type="date" class="form-control" id="requestedShiftDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Requested Shift Time</label>
+                            <select class="form-control" id="requestedShiftTime" required>
+                                <option value="">Select shift time</option>
+                                <option value="Morning">Morning (6:00 AM - 2:00 PM)</option>
+                                <option value="Afternoon">Afternoon (2:00 PM - 10:00 PM)</option>
+                                <option value="Evening">Evening (10:00 PM - 6:00 AM)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Reason</label>
+                        <textarea class="form-control" id="shiftReason" rows="4" placeholder="Please provide reason for shift change request..." required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeShiftModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="submitShiftRequest()">Submit Request</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="request&application.js"></script>
+    <script src="SIDEBAR.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - RetailCorp Employee Attendance System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../Side-bar/sidebar.css">
+    <link rel="stylesheet" href="logout.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="left-header">
+            <h1>Retail Corp</h1>
+            <p>Manager Attendance System</p>
+        </div>
+        <div class="right-header">
+            <div class="date" id="date"></div>
+            <div class="time" id="time"></div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <label>
+        <input type="checkbox" id="sidebar-toggle">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+
+        <div class="slide">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i class="fas fa-building"></i>
+                    <span class="logo-text">RetailHQ Manager</span>
+                </div>
+            </div>
+
+            <div class="profile">
+                <div class="profile-img-container">
+                    <div class="profile-initials">JD</div>
+                </div>
+                <div class="profile-text">
+                    <p class="username">John Doe</p>
+                    <p class="department">Sales & Customer Service</p>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li><a href="../Main-page/dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="menu-text">Dashboard</span></a></li>
+                <li><a href="../Attendance-page/attendance.html"><i class="fas fa-users"></i><span class="menu-text">Attendance Monitoring</span></a></li>
+                <li>
+                    <a href="../LeaveRequest-page/request.html">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="menu-text">Leave Requests</span>
+                        <span class="badge">3</span>
+                    </a>
+                </li>
+                <li><a href="../shift-page/shift.html"><i class="fas fa-clock"></i><span class="menu-text">Shift Management</span></a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i><span class="menu-text">Reports</span></a></li>
+                <li class="logout-item"><a href="#" class="active"><i class="fas fa-sign-out-alt"></i><span class="menu-text">Logout</span></a></li>
+            </ul>
+        </div>
+    </label>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="logout-container">
+            <div class="logout-card">
+                <div class="logout-icon">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+                <h2>Sign Out</h2>
+                <p class="logout-message">
+                    Are you sure you want to sign out of your RetailCorp Manager account?
+                </p>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <div class="avatar-initials">JD</div>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name">John Doe</p>
+                        <p class="user-role">Sales & Customer Service Manager</p>
+                        <p class="last-login">Last login: <span id="last-login-time"></span></p>
+                    </div>
+                </div>
+                <div class="logout-actions">
+                    <button class="btn btn-cancel" id="cancel-btn">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </button>
+                    <button class="btn btn-logout" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal-overlay" id="logout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Confirm Logout</h3>
+            </div>
+            <div class="modal-body">
+                <p>You will be signed out and redirected to the login page. Any unsaved changes may be lost.</p>
+                <p><strong>Are you sure you want to continue?</strong></p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="modal-cancel">
+                    <i class="fas fa-arrow-left"></i>
+                    Go Back
+                </button>
+                <button class="btn btn-danger" id="modal-confirm">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Yes, Sign Out
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <p>Signing out...</p>
+        </div>
+    </div>
+
+    <script src="../sidebar/sidebar.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>

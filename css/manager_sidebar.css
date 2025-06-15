@@ -1,0 +1,320 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f5f7fb;
+}
+
+/* Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a73e8;
+    color: white;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    height: 70px;
+}
+
+.left-header {
+    margin-left: 40px;
+}
+
+.left-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.left-header p {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.right-header {
+    text-align: right;
+}
+
+.right-header .date,
+.right-header .time {
+    font-size: 15px;
+    margin: 2px 0;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar Styling */
+.slide {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    transition: 0.3s ease;
+    transform: translateX(-250px);
+    z-index: 4;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: 15px;
+    border-bottom: 1px solid rgba(118, 34, 34, 0.1);
+    margin-bottom: 10px;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    color: #011a41;
+}
+
+.sidebar-logo i {
+    font-size: 24px;
+    margin-right: 12px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile-img-container {
+    margin-right: 12px;
+}
+
+.profile-initials {
+    width: 36px;
+    height: 36px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-text {
+    color: #011a41;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.department {
+    font-size: 12px;
+    opacity: 0.8;
+    color: #e22222;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin: 2px 0;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #011a41;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 0;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #4361ee;
+    color: white;
+}
+
+.sidebar-menu li a.active {
+    background-color: #4361ee;
+    color: white;
+    border-left: 4px solid #4361ee;
+}
+
+.sidebar-menu li a i {
+    width: 20px;
+    margin-right: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu-text {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Badge for notifications */
+.badge {
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+/* Logout item styling */
+.logout-item {
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+}
+
+.logout-item a:hover {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #ff6b6b;
+}
+
+/* Hamburger Toggle Button */
+.toggle {
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    top: 20px;
+    left: 15px;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.toggle:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger Lines */
+.toggle .top_line,
+.toggle .middle_line,
+.toggle .bottom_line {
+    position: absolute;
+    height: 2px;
+    width: 18px;
+    background-color: #4361ee;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.toggle .top_line {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .middle_line {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle .bottom_line {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* When the input is checked, change the toggle lines */
+input:checked ~ .toggle .top_line {
+    left: 6px;
+    top: 14px;
+    width: 18px;
+    transform: rotate(45deg);
+    background-color: #4361ee;
+}
+
+input:checked ~ .toggle .bottom_line {
+    left: 6px;
+    top: 14px;
+    width: 18px;
+    transform: rotate(-45deg);
+    background-color: #4361ee;
+}
+
+input:checked ~ .toggle .middle_line {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* When the checkbox is checked, show the sidebar */
+input:checked ~ .slide {
+    transform: translateX(0);
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Collapsed state adjustments */
+@media (max-width: 768px) {
+    .slide {
+        width: 250px;
+    }
+    
+    .header .left-header {
+        margin-left: 50px;
+    }
+}
+
+/* Scrollbar styling for sidebar */
+.slide::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.slide::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.slide::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}

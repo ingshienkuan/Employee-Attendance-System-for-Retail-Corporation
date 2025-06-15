@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attendance History - Employee Attendance System</title>
+  <link rel="stylesheet" href="history.css" />
+  <!-- Font Awesome CDN for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+
+<body>
+  <div id="sidebar"></div>
+  
+  <div class="main-content">
+    <div class="container">
+      <!-- Header Section -->
+      <div class="page-header">
+        <h1 class="page-title">Attendance History</h1>
+        <div class="header-controls">
+          <select id="month-filter" class="month-dropdown">
+            <option value="2024-06">June 2024</option>
+            <option value="2024-05">May 2024</option>
+            <option value="2024-04">April 2024</option>
+            <option value="2024-03">March 2024</option>
+          </select>
+          <button class="export-btn">
+            <i class="fas fa-download"></i>
+            Export Report
+          </button>
+        </div>
+      </div>
+
+      <!-- Attendance Table -->
+      <div class="attendance-card">
+        <div class="table-container">
+          <table class="attendance-table">
+            <thead>
+              <tr>
+                <th>DATE</th>
+                <th>CLOCK IN</th>
+                <th>CLOCK OUT</th>
+                <th>BREAK IN</th>
+                <th>BREAK OUT</th>
+                <th>TOTAL HOURS</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody id="attendance-tbody">
+              <!-- Table rows will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <div class="pagination-info">
+            <span>Showing <span id="showing-start">1</span> to <span id="showing-end">7</span> of <span id="total-count">22</span> results</span>
+          </div>
+          <div class="pagination-controls">
+            <button class="pagination-btn" id="prev-btn" disabled>
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="pagination-btn active" data-page="1">1</button>
+            <button class="pagination-btn" data-page="2">2</button>
+            <button class="pagination-btn" data-page="3">3</button>
+            <button class="pagination-btn" data-page="4">4</button>
+            <button class="pagination-btn" id="next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="history.js"></script>
+  <script src="sidebar.js"></script>
+</body>
+</html>

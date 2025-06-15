@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request & Approval</title>
+    <link rel="stylesheet" href="request.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Link to Sidebar and Header CSS -->
+    <link rel="stylesheet" href="../side-bar/sidebar.css">
+</head>
+<body>
+
+    <!-- Sidebar and Header loaded dynamically -->
+    <div id="sidebarContainer"></div>
+
+    <div class="main-content">
+        <h1>Request & Approval</h1>
+
+        <!-- Requests Table -->
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>EMPLOYEE</th>
+                        <th>DEPARTMENT</th>
+                        <th>REQUEST TYPE</th>
+                        <th>DATE</th>
+                        <th>STATUS</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="requestLogs">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Link to Sidebar and Header JS -->
+    <script src="../side-bar/sidebar.js"></script>
+
+    <script>
+        // Dynamically load Sidebar and Header
+        fetch('../side-bar/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebarContainer').innerHTML = data;
+            })
+            .catch(error => console.log('Error loading sidebar:', error));
+    </script>
+
+    <!-- Request Page Specific JS -->
+    <script src="request.js"></script>
+
+</body>
+</html>
