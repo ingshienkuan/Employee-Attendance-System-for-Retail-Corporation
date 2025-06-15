@@ -47,7 +47,7 @@ CREATE TABLE employees (
     FOREIGN KEY (department_id) REFERENCES departments(id)
 );
 
--- Insert sample employees with pre-linked department_id and shift_id
+-- Insert sample employees 
 INSERT INTO employees (employee_id, name, user_type, password_hash, email, shift_id, department_id)
 VALUES
 ('EMP001', 'John Smith', 'employee', 'd59b6ad4dd4667de6c6ac8c56b9e2293', 'john.smith@gmail.com',

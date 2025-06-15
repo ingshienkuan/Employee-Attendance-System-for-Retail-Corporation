@@ -9,6 +9,7 @@ function hideLogoutModal()
 {
     document.getElementById('logoutModal').classList.remove('active');
     document.body.style.overflow = 'auto';
+    window.history.back();
 }
 
 function updateLogoutModal() 

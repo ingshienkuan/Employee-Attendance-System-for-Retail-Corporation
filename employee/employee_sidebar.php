@@ -89,9 +89,7 @@ catch (PDOException $e)
             <ul>
                 <li><a href="employee-dashboard.php"><i class="fa-solid fa-chart-bar"></i>Dashboard</a></li>
                 <li><a href="employee_history.php"><i class="fa-solid fa-calendar-days"></i>Attendance History</a></li>
-                <li><a href="employee_request_application.php"><i class="fa-solid fa-envelope"></i>Request & Application</a></li>
                 <li><a href="employee_shift_schedule.php"><i class="fa-solid fa-business-time"></i>Shift Schedule</a></li>
-                <li><a href="employee_profile.php"><i class="fa-solid fa-user"></i>Profile</a></li>
                 <li><a href="employee_logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
         </div>
