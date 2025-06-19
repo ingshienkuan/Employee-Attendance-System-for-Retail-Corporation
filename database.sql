@@ -1,7 +1,8 @@
+-- Create the database and use it
 CREATE DATABASE IF NOT EXISTS tse_employee_attendance;
 USE tse_employee_attendance;
 
--- Create departments table first (referenced later)
+-- Create departments table
 CREATE TABLE IF NOT EXISTS departments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -142,7 +143,11 @@ VALUES
 
 ('ADM123', 'ADMIN', 'admin', 'd59b6ad4dd4667de6c6ac8c56b9e2293', 'admin@gmail.com',
     NULL,
-    (SELECT id FROM departments WHERE name = 'admin'));
+    (SELECT id FROM departments WHERE name = 'admin')),
+
+('EMP006', 'Alice Green', 'employee', 'd59b6ad4dd4667de6c6ac8c56b9e2293', 'alice.green@gmail.com',
+    (SELECT shift_id FROM shifts WHERE shift_name = 'Night Shift'),
+    (SELECT id FROM departments WHERE name = 'Operations'));
 
 -- Create Attendance table
 CREATE TABLE Attendance (
@@ -154,6 +159,7 @@ CREATE TABLE Attendance (
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
+-- Create shift_assignments table
 CREATE TABLE IF NOT EXISTS shift_assignments (
     assignment_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_id VARCHAR(50) NOT NULL,
@@ -164,6 +170,7 @@ CREATE TABLE IF NOT EXISTS shift_assignments (
     UNIQUE KEY (employee_id, assignment_date) 
 );
 
+-- Insert shift assignments data
 INSERT INTO shift_assignments (employee_id, shift_id, assignment_date)
 VALUES
 ('EMP002', 2, '2025-06-10'),
