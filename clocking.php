@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
     <form method="POST" action="clocking.php">
         <div class="form-group">
-            <label for="employeeId">Employee ID</label>
+            <label for="employeeId">Staff ID</label>
             <div class="id-container">
                 <input type="text" name="employeeId" id="employeeId" placeholder="Enter your employee ID" value="<?php echo htmlspecialchars($_POST['employeeId'] ?? ''); ?>" required>
                 <button type="submit" class="tick-btn" title="Confirm Employee ID">
@@ -182,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             <div id="employeeDetails">
                 <div class="row">
                     <div class="form-group col">
-                        <label for="employeeName">Employee Name</label>
+                        <label for="employeeName">Staff Name</label>
                         <input type="text" id="employeeName" value="<?php echo htmlspecialchars($employee['name']); ?>" readonly>
                     </div>
 
